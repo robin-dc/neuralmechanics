@@ -9,9 +9,11 @@ export default function HealthSummaryCard({ patient }: any) {
     return <div></div>;
   }
 
+  const latestVisit = [...patient.visits].sort((a, b) => b.timestamp - a.timestamp)[0];
+  
   const { data: risk, isLoading } = useQuery({
-    queryKey: ["risk", patient.id],
-    queryFn: () => PatientService.getRiskAssessment(patient.age, patient.visits[0].systolic)
+    queryKey: ["risk", patient.patientId, latestVisit.timestamp],
+    queryFn: () => PatientService.getRiskAssessment(patient.age, latestVisit.systolic)
   });
 
   useEffect(() => {

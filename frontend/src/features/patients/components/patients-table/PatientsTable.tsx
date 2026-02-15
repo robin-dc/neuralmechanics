@@ -3,7 +3,8 @@ import {
   MoreHorizontal, 
   ChevronDown,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Eye
 } from 'lucide-react';
 import {
   Table,
@@ -15,14 +16,20 @@ import {
 } from '@/components/ui/table';
 import {
   DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import PatientsTableFilter from './PatientsTableFilter';
 import type { FilterValue, GenderFilterValue, Patient } from '../../types/patient';
+import { useNavigate } from 'react-router-dom';
 
 export default function PatientTable({ data }: { data: Patient[] | undefined }) {
+  const navigate = useNavigate();
   const [patients, setPatients] = useState<Patient[]>(data || []);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [statusFilter, setStatusFilter] = useState<FilterValue>('all');
@@ -218,7 +225,7 @@ export default function PatientTable({ data }: { data: Patient[] | undefined }) 
                             <MoreHorizontal className="h-4 w-4" />
                           </Button>
                         </DropdownMenuTrigger>
-                        {/* <DropdownMenuContent align="end" className="w-[180px]">
+                        <DropdownMenuContent align="end" className="w-[180px]">
                           <DropdownMenuLabel>Actions</DropdownMenuLabel>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem 
@@ -228,14 +235,14 @@ export default function PatientTable({ data }: { data: Patient[] | undefined }) 
                             <Eye className="mr-2 h-4 w-4" />
                             View Details
                           </DropdownMenuItem>
-                          <DropdownMenuItem 
+                          {/* <DropdownMenuItem 
                             onClick={() => handleDelete(patient)}
                             className="cursor-pointer text-red-600 focus:text-red-600"
                           >
                             <Trash2 className="mr-2 h-4 w-4 text-red-600 focus:text-red-600" />
                             Delete
-                          </DropdownMenuItem>
-                        </DropdownMenuContent> */}
+                          </DropdownMenuItem> */}
+                        </DropdownMenuContent>
                       </DropdownMenu>
                     </TableCell>
                   </TableRow>
