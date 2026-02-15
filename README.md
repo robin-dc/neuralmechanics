@@ -2,7 +2,11 @@
 
 A small example app (frontend + backend) for tracking patient records and vitals, and performing a simple risk assessment.
 
-**Node:** 24.13.0 (used)
+A full-stack application for tracking patient records and vitals with automated risk assessment.
+
+**Tech Stack**: Node.js (Express) + React (Vite) + TypeScript + Shadcn UI + Tailwind CSS  
+
+**Node Version:** 24.13.0 (used)
 
 **Contents**
 - **How to Run the Application**
@@ -134,8 +138,8 @@ Base path: `/api/v1`
 
     ```json
     {
-      "riskScore": 63.0,
-      "riskLevel": "Moderate Risk"
+      "riskScore": 76.0,
+      "riskLevel": "High Risk"
     }
     ```
 
@@ -153,12 +157,10 @@ Base path: `/api/v1`
 
 2. **Authentication & Authorization**: Add user accounts and role-based access control so that only authenticated users can create/read/update patient data. Protect API endpoints with JWT or session-based auth and add per-user auditing.
 
-3. **Input validation & error handling improvements**: Centralize error responses and return consistent API error shapes. Expand validation (e.g., cross-field validation) and improve feedback in the UI.
+3. **Accessibility & UI/UX improvements**: Implement proper ARIA labels, keyboard navigation, screen reader support, and focus management for better accessibility. Add dark mode support, skeleton screens for improved user feedback. Enhance responsive design for mobile and tablet devices.
 
-4. **Refactor frontend to use more robust state management & code-splitting**: Adopt patterns such as colocation of data-fetching (React Query already present) and split large components into smaller, testable units. Add unit/integration tests for critical flows.
+4. **Input validation & error handling improvements**: Centralize error responses and return consistent API error shapes. Expand validation (e.g., cross-field validation) and improve feedback in the UI with inline error messages and field-level validation indicators.
 
-5. **E2E tests & CI**: Add automated tests (Jest, React Testing Library for frontend, supertest/mocha for backend) and configure CI (GitHub Actions) to run tests and linting on each PR.
+5. **Refactor frontend to use more robust state management & code-splitting**: Adopt patterns such as colocation of data-fetching (React Query already present) and split large components into smaller, testable units. Add unit/integration tests for critical flows.
 
----
-
-If you'd like, I can also add a short Postman collection, example cURL commands, or wire up a simple SQLite DB and migrations to demonstrate persistence—tell me which you'd prefer.
+6. **E2E tests & CI/CD**: Add automated tests (Jest, React Testing Library for frontend, supertest/mocha for backend) and configure CI/CD pipeline (GitHub Actions) to run tests, linting, and automated deployments on each PR and merge.
